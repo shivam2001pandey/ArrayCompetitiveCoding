@@ -3,9 +3,9 @@ using namespace std;
 
 int main() {
 	//code
-		int test;
-		cin>>test;
-	   while(test--)
+	int test;
+	cin>>test;
+	while(test--)
 	 {
 	    int size,sum,flag=0,j;
 	    cin>>size>>sum;
@@ -24,11 +24,11 @@ int main() {
 	                     flag=1;
 	                     break;
 	                 }
-	                else if(sum1>sum)
+	                else if(sum1>sum)  //No need to check further increment i
 	                    break;
 	                 
 	            }
-	       if(flag==1)
+	       if(flag==1) //Hurrah We find the subarray with given sum
 	        {
 	            cout<<i+1<<" "<<j+1<<endl;
 	            break;
@@ -36,7 +36,7 @@ int main() {
 	        }
 	        
 	    } 
-	   if(flag==0)
+	   if(flag==0)//No subarray with given sum found
 	    cout<<"-1"<<endl;
  	}
 	return 0;
