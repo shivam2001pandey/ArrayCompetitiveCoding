@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int test,size,z=1;
+	
+	cin>>test;
+	while(test--)
+	{ int diagSum=0,rowCount=0,colCount=0;
+	    cin>>size;
+	    int arr[size][size];
+	    for(int i=0;i<size;i++)
+	        for(int j=0;j<size;j++)
+	            cin>>arr[i][j];
+	   
+	    for(int i=0;i<size;i++){
+	        char flag='f';
+	        diagSum+=arr[i][i];
+	        
+	        for(int j=0;j<size-1;j++)
+	        {
+	            for(int k=j+1;k<size;k++)
+	            {
+	                if(arr[i][j]==arr[i][k]){
+	                    rowCount++;
+	                    flag='t';
+	                    break;
+	                }
+	            }
+	            if(flag=='t')
+	                break;
+
+	           }
+	        
+	    } 
+	    for(int i=0;i<size;i++){
+	        char flag='f';
+	        for(int j=0;j<size-1;j++)
+	        {
+	           for(int k=j+1;k<size;k++)
+	            {
+	                if(arr[j][i]==arr[k][i]){
+	                    colCount++;
+	                    flag='t';
+	                    break;
+	                }
+	            }
+	            if(flag=='t')
+	                break;
+
+	           }
+	        
+	    } 
+	   cout<<"Case #"<<z++<<:<<" "<<diagSum<<" "<<rowCount<<" "<<colCount<<endl;    
+	    }
+	return 0;
+}
