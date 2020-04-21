@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	    int n;
+	    cin>>n;
+	   long uglyArray[n];
+	   uglyArray[0]=1;
+	   long multiple_2=2;
+	   long multiple_3=3;
+	   long multiple_5=5;
+	   long uglyNext=1;
+	   int it2=0,it3=0,it5=0;
+	   for(int i=1;i<n;i++)
+	   {
+	       uglyNext=min(multiple_2,min(multiple_3,multiple_5));
+	       uglyArray[i]=uglyNext;
+	       if(uglyNext==multiple_2)
+	       {
+	           it2=it2+1;
+	            multiple_2=uglyArray[it2]*2;
+	       }
+	       if(uglyNext==multiple_3)
+	       {
+	           it3+=1;
+	            multiple_3=uglyArray[it3]*3;
+	       }
+	       if(uglyNext==multiple_5)
+	       {
+	           it5+=1;
+	            multiple_5=uglyArray[it5]*5;
+	       }
+	   }
+	   cout<<uglyNext<<endl;
+	}
+	return 0;
+}
