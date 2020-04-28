@@ -1,0 +1,59 @@
+// { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+#define MAX 501
+
+int getId(int M[MAX][MAX],int n);
+
+int main()
+{
+    int T;
+    cin>>T;
+    int M[MAX][MAX];
+    while(T--)
+    {
+        int N;
+        cin>>N;
+        memset(M,0,sizeof M);
+        for(int i=0;i<N;i++)
+        {
+            for(int j=0;j<N;j++)
+            {
+                cin>>M[i][j];
+            }
+        }
+        cout<<getId(M,N)<<endl;
+
+    }
+}
+
+// } Driver Code Ends
+// The task is to complete this function
+
+// M[][]: input matrix
+// n: size of matrix (n*n)
+int getId(int M[MAX][MAX], int n)
+{
+    //Your code here
+    int y=n-1;
+    int x=0;
+    while(x<y)
+    {
+        if(M[x][y]==1)
+            x++;
+        else
+            y--;
+    }
+    
+    for(int i=0;i<n;i++)//Sbhi log use jante hai ya nii
+    {   if(y==i)    continue;//why to compare with self
+        if(M[i][y]!=1)//even if any 1 person dont know him that means he's not celebrity
+            return -1;
+    }
+    for(int i=0;i<n;i++)//kya jisse celebrity smjha ja rha h wo kisiko janta to nii hai 
+        {
+            if(M[y][i]!=0)//kisiko janta hai mtlb wo celebrity tha hi nii.heheh 
+                return -1;
+        }
+    return y;    
+}
