@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	    int size;
+	    cin>>size;
+	    int arr[size];
+	    for(int i=0;i<size;i++)     cin>>arr[i];
+	    int lb=0,ub=size-1;//two pointer
+	    int area=0;	    
+	    while(lb<ub)
+	    {
+	        area=max(area,min(arr[lb],arr[ub])*(ub-lb));
+	        if(arr[lb]<arr[ub])
+	        lb++;
+	       else 
+	        ub--; 
+	    }
+	    cout<<area<<endl;
+	}
+	return 0;
+}
