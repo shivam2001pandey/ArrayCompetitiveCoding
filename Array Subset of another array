@@ -23,7 +23,8 @@ int main() {
 	        if(s.find(arr2[i])==s.end())
 	          {flag=0;
 	          cout<<"No"<<endl;
-	          break;}
+	          break;
+		  }
 	        
 	    }
 	    if(flag==1)
