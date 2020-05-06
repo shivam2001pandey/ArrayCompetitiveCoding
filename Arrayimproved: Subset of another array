@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int test;
+    cin>>test;
+    while(test--)
+    {
+        int size1,size2,flag=1;
+        cin>>size1>>size2;
+        int A[size1],B[size2];
+        for(int i=0;i<size1;i++)    cin>>A[i];
+        for(int i=0;i<size2;i++)    cin>>B[i];
+        unordered_map<int,int>m;
+        for(int i=0;i<size1;i++)    m[A[i]]++;  //containing the frequency of A
+        for(int i=0;i<size2;i++)
+        {
+            if(m.find(B[i])==m.end())
+            {
+                flag=0;
+                cout<<"B is a Not Subset of A"<<endl;
+                break;
+            }
+            else
+            {
+                m[B[i]]--;  //decrement the frequency
+                if(m[B[i]]==0)
+                    m.erase(m.find(B[i]));
+            }
+        }
+        if(flag==1)
+            cout<<"B is a Subset of A"<<endl;
+        return 0;    
+    }
+}
