@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	    int size,k,flag=0;
+	    cin>>size>>k;
+	    int arr[size];
+	    int max=INT_MIN,count=0;
+	    for(int i=0;i<size;i++)  
+	    {
+	        cin>>arr[i];
+	        if(max<arr[i]) max=arr[i];}
+	    int temp[max+1]={0};
+	    for(int i=0;i<size;i++)
+	           temp[arr[i]]=1;
+	    for(int i=arr[0];i<max+1;i++)
+	    {
+	        if(temp[i]==0) count++;
+	        if(count==k)
+	        {
+	            cout<<i;
+	            flag=1;
+	            break;
+	            
+	        }
+	    }
+	    if(flag==0) cout<<"-1";
+	    cout<<endl;
+	    
+	        	    
+	}
+	return 0;
+}
