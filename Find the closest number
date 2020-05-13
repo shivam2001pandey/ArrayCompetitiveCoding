@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	    int n,x;
+	    cin>>n>>x;
+	    int arr[n];
+	    for(int i=0;i<n;i++)
+	        cin>>arr[i];
+	   int mn=INT_MAX,ele;  
+	   if(x>=arr[0])
+	   {
+	   for(int i=0;i<n;i++)
+	   {    
+	       if(abs(x-arr[i])<=mn){
+	       mn=x-arr[i];ele=arr[i];    
+	       }
+	       
+	   }
+	   cout<<ele<<endl;
+	   }
+	   else
+	    cout<<arr[0]<<endl;
+	}
+	return 0;
+}
